@@ -20,3 +20,5 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const database = firebase.database();
+
+export { firebase, auth, database };
