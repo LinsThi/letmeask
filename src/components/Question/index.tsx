@@ -9,11 +9,20 @@ type QuestionsPropos = {
     avatar: string;
   }
   children?: ReactNode;
+  isAnswered?: boolean;
+  isHighlight?: boolean;
 }
 
-export function Question({ content, author, children }: QuestionsPropos){
+export function Question({ 
+  content, 
+  author, 
+  isAnswered = false,
+  isHighlight = false,
+  children,
+}: QuestionsPropos){
   return (
-    <div className="question">
+    <div className={`question ${isAnswered ? 'answered' : ''} 
+    ${isHighlight && !isAnswered ? 'highlighted' : ''}`}>
       <p>{content}</p>
       <footer>
         <div className="user-info">

@@ -1,5 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { FormEvent } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 import illustrationImg from '../assets/illustration.svg';
 import logoImg from '../assets/logo.svg';
@@ -20,6 +21,7 @@ export function NewRoom() {
     event.preventDefault();
 
     if(newRoom.trim() === '') {
+      toast.error('Nome da sala não pode ser vazio');
       return;
     }
 
@@ -35,6 +37,7 @@ export function NewRoom() {
 
   return(
     <div id="page-auth">
+      <Toaster position="top-center" reverseOrder={false}/>
       <aside>
         <img src={illustrationImg} alt="Ilustração APP"/>
         <strong>Crie salas de Q&A ao-vivo</strong>
